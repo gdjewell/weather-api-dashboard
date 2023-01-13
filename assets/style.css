@@ -1,0 +1,36 @@
+.hide {
+  display:none;
+}
+
+
+.side-column {
+  background-image:linear-gradient(gray, black); 
+  color:white; 
+  padding: 60px;
+}
+
+.previous-searches {
+  color:white;
+}
+
+.main-container {
+  border: 2px solid black;
+  background-image:linear-gradient(white, gray); 
+}
+
+.side-container {
+  margin-left:0;
+}
+
+#current-condition {
+  width:100px;
+  margin: 0 auto;
+}
+
+.btn-outline-primary {
+  width:100%;
+}
+
+.btn-outline-primary:hover {
+  background-color:orange
+}
