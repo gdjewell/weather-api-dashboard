@@ -45,17 +45,19 @@ function retrieveWeather(city) {
   })
   .then(function (data) {
     
-      
+    if (!listOfCities.includes(cityName ) )  { 
       let newLi = $('<li>').attr('style', 'list-style-type:none')
       let newPreviousSearchButton = $('<button>').attr('class', 'bg-info btn btn-outline-primary btn-lg py-2 previous-search-buttons').attr('style', 'text-decoration:none').text(cityName)
       previousSearches.append(newLi);
       newLi.append(newPreviousSearchButton);
     
-
+      
       for (i = 0; i < listOfCities.length; i++) {
         newLi.attr({id: 'list-item' + i})
         newPreviousSearchButton.attr({id: 'search' + i})
       }
+    }
+  
 
       const mainContainer = $('.main-container');
       const cityh4 = $('#cityID');
@@ -134,7 +136,10 @@ fetch(forecastURL)
 
   
   }) 
-
+  .catch(error =>  {
+    alert("You've entered an invalid city.")
+    console.log(error)
+    })
 
 }
 
@@ -156,7 +161,7 @@ submitSearch.on('click', function(e) {
 })
 
 previousSearches.on('click', '.previous-search-buttons', function(e) {
-  createNewButton = false;
+  
   cityName = e.target.innerHTML
   retrieveWeather(cityName)
 })

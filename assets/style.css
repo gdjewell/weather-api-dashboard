@@ -34,3 +34,8 @@
 .btn-outline-primary:hover {
   background-color:orange
 }
+
+#submit-search, #cityInput {
+flex-direction:row;
+
+}
