@@ -52,15 +52,17 @@ function retrieveWeather(city) {
 
     //If list of cities doesn't includ the city name then create new list item, and button for the previous search.
     
-    if (!listOfCities.includes(cityName ) )  { 
+    if (!listOfCities.includes(cityName) )  { 
+      listOfCities.push(cityName);
       let newLi = $('<li>').attr('style', 'list-style-type:none')
       let newPreviousSearchButton = $('<button>').attr('class', 'bg-info btn btn-outline-primary btn-lg py-2 previous-search-buttons').attr('style', 'text-decoration:none').text(cityName)
       previousSearches.append(newLi);
       newLi.append(newPreviousSearchButton);
+      console.log(listOfCities);
     
       //gives each li item and button a unique ID.
       
-      for (i = 0; i < listOfCities.length; i++) {
+      for (i = 0; i <= listOfCities.length; i++) {
         newLi.attr({id: 'list-item' + i})
         newPreviousSearchButton.attr({id: 'search' + i})
       }
@@ -196,7 +198,6 @@ fetch(forecastURL)
 
 submitSearch.on('click', function(e) {
   cityName = $(this).prev().val()
-  listOfCities.push(cityName);
   saveCity = localStorage.setItem("City Name", JSON.stringify((listOfCities)));
   console.log(cityName);
   
